@@ -1,4 +1,5 @@
 import React from 'react'
+import About from './About'
 
 function Service() {
   return (
@@ -120,6 +121,7 @@ function Service() {
             
 
         </div>
+        <About/>
     </div>
   )
 }
