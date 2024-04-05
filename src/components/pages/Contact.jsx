@@ -1,8 +1,27 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { MdEmail, MdLocationOn, MdOutlineLocationOn } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
+import emailjs from '@emailjs/browser';
 
 function Contact() {
+
+    const form = useRef()
+
+    const sendEmail = (e) =>{
+        e.preventDefault();
+
+        emailjs.sendForm('service_pn5615b','template_b0js4hj',form.current,'j4xx381zO86hhZJce')
+
+        .then((result) => {
+            console.log(result.text)
+            alert("Message Send Sucessfully")
+        },  (error)=>{
+            console.log(error.text);
+          }
+
+        );
+        e.target.reset()
+    }
 
 
   return (
@@ -33,7 +52,8 @@ function Contact() {
                 </li>
             
         </div>
-        <form className='w-[60%] rounded-lg h-[70vh] z-50 flex justify-around flex-col items-center relative left-8 bg-white'>
+        <form ref={form} onSubmit={sendEmail}
+            className='w-[60%] rounded-lg h-[70vh] z-50 flex justify-around flex-col items-center relative left-8 bg-white'>
             <div className='w-[90%] '>
                 <input className='w-[100%] h-14 cursor-text border-2 rounded-sm border-gray-400 bg-transparent text-s' type="text" name='name' placeholder='Full Name' required/>
             </div>
@@ -47,7 +67,7 @@ function Contact() {
             <div className='w-[90%]'>
                 <textarea className='cursor-text w-[100%] border-2 rounded-sm border-gray-400' name="message" id="message"  rows="5" placeholder='message'></textarea>
             </div>
-                <button className='w-[40%] border-none rounded-2xl py-2 px-2 bg-blue-800 text-white hover:bg-gray-950'>Send</button>
+                <button type='submit' className='w-[40%] border-none rounded-2xl py-2 px-2 bg-blue-800 text-white hover:bg-gray-950'>Send</button>
         </form>
     </div>
   )

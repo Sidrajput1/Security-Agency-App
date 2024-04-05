@@ -1,5 +1,6 @@
 import React from 'react'
 import About from './About'
+import Contact from './Contact'
 
 function Service() {
   return (
@@ -122,6 +123,7 @@ function Service() {
 
         </div>
         <About/>
+        <Contact/>
     </div>
   )
 }
