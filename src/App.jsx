@@ -8,6 +8,7 @@ import Contact from './components/pages/Contact'
 import Galary from './components/pages/Galary'
 import Testimonial from './components/pages/Testimonial'
 import Footer from './components/pages/Footer'
+import Testimonia2 from './components/pages/Testimonial2'
 
 function App() {
   
@@ -20,7 +21,7 @@ function App() {
         <Route path='/service' element={<Service/>}></Route>
         <Route path='/contact' element={<Contact/>}></Route>
         <Route path='/galary' element={<Galary/>}></Route>
-        <Route path='/testimonial' element={<Testimonial/>}></Route>
+        <Route path='/testimonial' element={<Testimonia2/>}></Route>
       </Routes>
       <Footer/>
     </>
