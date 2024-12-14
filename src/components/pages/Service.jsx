@@ -1,12 +1,52 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import About from './About'
 import Contact from './Contact'
 
 function Service() {
+
+        const [isScroll,setIsScrolled] = useState(false)
+
+        useEffect( () => {
+
+            const preventCopy = (e) => {
+                e.preventDefault();
+            };
+
+            const preventRightClick = (e) => {
+                e.preventDefault();
+            }
+
+            document.addEventListener('copy',preventCopy);
+            document.addEventListener('cut',preventCopy);
+            document.addEventListener('selectstart',preventCopy);
+
+            // return () => {
+            //     // Cleanup event listeners on component unmount
+            //     document.removeEventListener('copy', preventCopy);
+            //     document.removeEventListener('cut', preventCopy);
+            //     document.removeEventListener('selectstart', preventCopy);
+            //     document.removeEventListener('contextmenu', preventRightClick);
+            //   };
+
+            const handleScroll = () => {
+                const scrollTop = scrollY
+                if(scrollTop>50){
+                    setIsScrolled(true)
+                }else{
+                    setIsScrolled(false)
+                }
+            };
+
+            window.addEventListener('scroll',handleScroll)
+
+        },[]);
+
+
+
   return (
     <div className='mt-24'>
         
-        <h1 className='text-center text-5xl text-blue-900 mb-8'>Our Services</h1>
+        <h1 className={`text-center text-5xl text-blue-900 mb-8 transition-none ${isScroll ? `md:transition-shadow md:ease-in-out md:duration-700  translate-x-0` : `md:translate-y-full`}`}>Our Services</h1>
         {/* <div className='flex w-full  flex-row  justify-around items-center gap-4 md:gap-8 font-serif m-auto'>
             <div className='w-full  md:w-[40%] lg:w-[30%] h-[35vh] md:h-[35vh] flex flex-col justify-evenly items-center border-2 rounded-badge z-30 border-blue-400' >
                 <img src="https://template63469.motopreview.com/mt-demo/63400/63469/mt-content/uploads/2017/06/mt-1028-home-icons01.png" alt="cemra" />
@@ -26,20 +66,20 @@ function Service() {
                     In the corporate world</p>
             </div>
         </div> */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 font-serif m-auto'>
-            <div className='w-full h-[30vh] md:h-[35vh] flex flex-col justify-evenly items-center border-2 rounded-badge z-30 border-blue-400'>
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 font-serif m-auto transition-none ${isScroll ? `md:transition-transform ease-in-out duration-1000 translate-x-0`:`md:-translate-x-full`} `}>
+            <div className='w-full h-[30vh] md:h-[35vh] flex flex-col justify-evenly items-center border-2 rounded-badge z-30 border-blue-400 hover:bg-gray-500 hover:text-white hover:border-none transition-all ease-in-out duration-300'>
                 <img src="https://template63469.motopreview.com/mt-demo/63400/63469/mt-content/uploads/2017/06/mt-1028-home-icons01.png" alt="camera" />
                 <p className='text-center mb-4 md:ml-3'>To identify and source the best candidate at the right time at the right place, maintaining high standards.</p>
             </div>
-            <div className='w-full h-[30vh] md:h-[35vh] flex flex-col justify-evenly items-center border-2 rounded-badge z-30 border-blue-400'>
+            <div className='w-full h-[30vh] md:h-[35vh] flex flex-col justify-evenly items-center border-2 rounded-badge z-30 border-blue-400 hover:bg-gray-500 transition-all ease-in-out duration-300 hover:text-white hover:border-none'>
                 <img src="https://template63469.motopreview.com/mt-demo/63400/63469/mt-content/uploads/2017/06/mt-1028-home-icons02.png" alt="camera" />
                 <p className='text-center mb-4 md:ml-3'>To give the best security to our clients against their investments.</p>
             </div>
-            <div className='w-full h-[30vh] md:h-[35vh] flex flex-col justify-evenly items-center border-2 rounded-badge z-30 border-blue-400'>
+            <div className='w-full h-[30vh] md:h-[35vh] flex flex-col justify-evenly items-center border-2 rounded-badge z-30 border-blue-400 hover:bg-gray-500 hover:text-white hover:border-none transition-all ease-in-out duration-300'>
                 <img src="https://template63469.motopreview.com/mt-demo/63400/63469/mt-content/uploads/2017/06/mt-1028-home-icons03.png" alt="camera" />
                 <p className='text-center mb-4 md:ml-3'>To provide our customers with the best service throughout the world.</p>
             </div>
-            <div className='w-full h-[30vh] md:h-[35vh] flex flex-col justify-evenly items-center border-2 rounded-badge z-30 border-blue-400'>
+            <div className='w-full h-[30vh] md:h-[35vh] flex flex-col justify-evenly items-center border-2 rounded-badge z-30 border-blue-400 hover:bg-gray-500 hover:text-white hover:border-none transition-all ease-in-out duration-300'>
                 <img src="https://template63469.motopreview.com/mt-demo/63400/63469/mt-content/uploads/2017/06/mt-1028-home-icons04.png" alt="camera" />
                 <p className='text-center mb-4 md:ml-3'>Make our clients proud by rising our position in the corporate world.</p>
             </div>

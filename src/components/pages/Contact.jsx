@@ -12,7 +12,7 @@ function Contact() {
     const sendEmail = (e) =>{
         e.preventDefault();
 
-        emailjs.sendForm('process.env.SERVICE','process.env.TEMPLATE',form.current,'process.env.SECRET')
+        emailjs.sendForm('service_p7mz7il','template_b0js4hj',form.current,'j4xx381zO86hhZJce')
 
         .then((result) => {
             console.log(result.text)
@@ -72,10 +72,10 @@ function Contact() {
     //             <button type='submit' className='w-[40%] border-none rounded-2xl py-2 px-2 bg-blue-800 text-white hover:bg-gray-950'>Send</button>
     //     </form>
     // </div>
-    <div className='w-full md:w-[90%] rounded-lg md:h-[90vh] bg-slate-300 mx-auto flex flex-col md:flex-row-reverse justify-around items-center'>
+    <div className='w-full md:w-[90%] rounded-lg md:h-[90vh] bg-slate-300 mx-auto flex flex-col md:flex-row-reverse justify-around items-center mt-28'>
 
     {/* Contact Info */}
-    <div className='w-full md:w-[30%] rounded-lg md:h-[70vh] border-2 bg-cyan-300  flex flex-col justify-around items-center text-center'>
+    <div className='w-full md:w-[30%] rounded-lg md:h-[70vh] border-2 bg-cyan-300  flex flex-col justify-around items-center text-center '>
         <h1 className='font-bold text-4xl'>Contact Info</h1>
          <div>
             <FcBusinessContact  className='text-[8rem]'/>

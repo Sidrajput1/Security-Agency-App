@@ -9,6 +9,7 @@ import Galary from './components/pages/Galary'
 import Testimonial from './components/pages/Testimonial'
 import Footer from './components/pages/Footer'
 import Testimonia2 from './components/pages/Testimonial2'
+import LearnMore from './components/pages/LearnMore'
 
 function App() {
   
@@ -22,6 +23,7 @@ function App() {
         <Route path='/contact' element={<Contact/>}></Route>
         <Route path='/galary' element={<Galary/>}></Route>
         <Route path='/testimonial' element={<Testimonia2/>}></Route>
+        <Route path='/learn' element={<LearnMore/>}></Route>
       </Routes>
       <Footer/>
     </>

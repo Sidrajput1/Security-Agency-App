@@ -1,12 +1,40 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Contact from './Contact'
 import Service from './Service'
 import Testimonial from './Testimonial'
 import Footer from './Footer'
 
 function About() {
+
+    useEffect(() => {
+        const preventCopy = (e) => {
+          e.preventDefault();
+        };
+    
+        const preventRightClick = (e) => {
+          e.preventDefault();
+        };
+    
+        
+        document.addEventListener('copy', preventCopy);
+        document.addEventListener('cut', preventCopy);
+        document.addEventListener('selectstart', preventCopy);
+    
+        // Prevent right-clicking
+        document.addEventListener('contextmenu', preventRightClick);
+    
+        return () => {
+          // Cleanup event listeners on component unmount
+          document.removeEventListener('copy', preventCopy);
+          document.removeEventListener('cut', preventCopy);
+          document.removeEventListener('selectstart', preventCopy);
+          document.removeEventListener('contextmenu', preventRightClick);
+        };
+      }, []);
+
+
     return (
-        <div className='min-h-screen  border-violet-600 '>
+        <div className='min-h-screen  border-violet-600 mt-36 '>
             <div className='w-full h-[70vh] md:w-[90%] m-auto flex flex-col md:flex-row   justify-evenly md:justify-evenly items-center bg-transparent '>
                 <div className='w-[80%] md:w-[40%]'>
                     <img className='w-[100%] h-80 object-cover' src="https://template63469.motopreview.com/mt-demo/63400/63469/mt-content/uploads/2017/06/mt-1028-about-img.jpg" alt="a guard" />
